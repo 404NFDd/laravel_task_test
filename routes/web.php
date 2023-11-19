@@ -29,6 +29,8 @@ Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function(){
 Route::group(['prefix' => 'answer'], function(){
   Route::get('index', 'answerFormController@index')->name('answer.index');
   Route::post('confirm', 'answerFormController@confirm')->name('answer.confirm');
+  Route::post('finish', 'AnswerFormController@finish')->name('answer.finish');
+
 });
 
 

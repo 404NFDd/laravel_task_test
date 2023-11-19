@@ -14,7 +14,10 @@
             </ul>
             <div class="mt-3">
                 <a href="javascript:history.back()" class="btn btn-secondary">수정하기</a>
-                <a href="{{ url('/next-page') }}" class="btn btn-primary">저장하고 다음으로</a>
+                <form action="{{ route('answer.finish') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">저장하고 다음으로</button>
+                </form>
             </div>
         </div>
     </div>

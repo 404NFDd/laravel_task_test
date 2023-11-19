@@ -44,14 +44,14 @@
                 <div class="form-check">
                     <input type="hidden" name="is_send_email" value="0">
                     <input type="checkbox" class="form-check-input" id="is_send_email" name="is_send_email" 
-                    {{ old('is_send_email', 1) == '1' ? 'checked' : '' }}>
+                    {{ old('is_send_email', 1) == 1 ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_send_email">홍보용 메일 수신동의</label>
                 </div>
                 
                 <!-- 질문사항 -->
                 <div class="form-group">
                     <label for="feedback">질문사항</label>
-                    <textarea class="form-control" id="feedback" name="feedback" rows="3">{{ old('feedback') }}</textarea>
+                    <textarea class="form-control" id="feedback" name="feedback" maxlength="10000" rows="3">{{ old('feedback') }}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">제출</button>

@@ -67,12 +67,12 @@
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
                 <a href="{{ url('/answer/index') }}">Home</a>
+                <a href="{{ url('/contact/index') }}">contact</a>
             </div>
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/contact/index') }}">Home</a>
-                        
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
