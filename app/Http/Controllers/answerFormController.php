@@ -38,9 +38,7 @@ class answerFormController extends Controller
             'feedback' => nl2br($request->input('feedback')), // 개행을 <br>로 변환
         ];
 
-        // session(['confirm_data' => $data]);
-
-        // dd(session()->all());
+        session(['confirm_data' => $data]);
 
         return view('answer.confirm', compact('data'));
     }
@@ -48,7 +46,6 @@ class answerFormController extends Controller
     {
         // 세션에서 데이터를 가져옴
         $sessionData = $request->session()->get('confirm_data');
-
         // 데이터베이스에 저장
         $answer = new Answers();
         $answer->fullname = $sessionData['fullname'];
@@ -58,6 +55,8 @@ class answerFormController extends Controller
         $answer->is_send_email = $sessionData['is_send_email'] == '수신 동의함' ? 1 : 0;
         $answer->feedback = $sessionData['feedback'];
         $answer->save();
+
+        // dd($answer);
 
         // 세션에서 데이터를 제거
         $request->session()->forget('confirm_data');
