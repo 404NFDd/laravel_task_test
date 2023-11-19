@@ -24,7 +24,7 @@ class answerFormController extends Controller
             'gender' => $request->input('gender'),
             'age_id' => Ages::find($request->input('age_id'))->age,
             'email' => $request->input('email'),
-            'is_send_email' => $request->input('is_send_email') ? '수신 동의함' : '수신 동의 안함',
+            'is_send_email' => $request->input('is_send_email') ? '1' : '0',
             'feedback' => nl2br($request->input('feedback')), // 개행을 <br>로 변환
         ];
 

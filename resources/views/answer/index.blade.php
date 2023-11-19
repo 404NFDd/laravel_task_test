@@ -42,10 +42,12 @@
 
                 <!-- 홍보용 메일 수신동의 -->
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="is_send_email" name="is_send_email" {{ old('is_send_email', true) ? 'checked' : '' }}>
+                    <input type="hidden" name="is_send_email" value="0">
+                    <input type="checkbox" class="form-check-input" id="is_send_email" name="is_send_email" 
+                    {{ old('is_send_email', 1) == '1' ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_send_email">홍보용 메일 수신동의</label>
                 </div>
-
+                
                 <!-- 질문사항 -->
                 <div class="form-group">
                     <label for="feedback">질문사항</label>
