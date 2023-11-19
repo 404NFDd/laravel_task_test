@@ -30,7 +30,11 @@ Route::group(['prefix' => 'answer'], function(){
   Route::get('index', 'answerFormController@index')->name('answer.index');
   Route::post('confirm', 'answerFormController@confirm')->name('answer.confirm');
   Route::post('finish', 'AnswerFormController@finish')->name('answer.finish');
-
+});
+Route::group(['prefix' => 'answer','middleware' => 'auth'], function(){
+  Route::get('show', 'answerFormController@show')->name('show.index');
 });
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');

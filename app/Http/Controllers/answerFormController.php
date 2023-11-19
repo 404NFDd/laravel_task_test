@@ -18,6 +18,8 @@ class answerFormController extends Controller
         // dd($ages);
         return view('answer.index', compact('ages'));
     }
+
+
     public function confirm(Request $request)
     {
         // 유효성 검사 
@@ -42,6 +44,8 @@ class answerFormController extends Controller
 
         return view('answer.confirm', compact('data'));
     }
+
+
     public function finish(Request $request)
     {
         // 세션에서 데이터를 가져옴
@@ -63,5 +67,10 @@ class answerFormController extends Controller
 
         // Finish 뷰를 반환
         return view('answer.finish');
+    }
+
+    public function show(){
+
+        return view('answer.show');
     }
 }

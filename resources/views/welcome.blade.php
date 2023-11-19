@@ -68,9 +68,7 @@
             <div class="top-right links">
                 <a href="{{ url('/answer/index') }}">Home</a>
                 <a href="{{ url('/contact/index') }}">contact</a>
-            </div>
             @if (Route::has('login'))
-                <div class="top-right links">
                     @auth
                         <a href="{{ url('/contact/index') }}">Home</a>
                     @else
@@ -80,12 +78,12 @@
                             <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
-                </div>
+            </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Lravel for min
+                    Laravel for min
                 </div>
 
                 <div class="links">
