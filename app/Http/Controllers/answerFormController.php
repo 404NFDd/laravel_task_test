@@ -66,11 +66,35 @@ class answerFormController extends Controller
         $request->session()->forget('confirm_data');
 
         // Finish 뷰를 반환
-        return view('answer.finish');
+        return redirect()->route('answer.index')->with('success', '입력이 완료되었습니다.');
     }
 
     public function show(){
 
         return view('answer.show');
     }
+    public function system(Request $request)
+    {
+        $query = Answers::query();
+    
+        // 이름 검색어가 전달되었을 때만 적용
+        if ($request->has('name')) {
+            $name = $request->input('name');
+            $query->where('fullname', 'like', '%' . $name . '%');
+        }
+    
+        $answers = $query->paginate(10); // 한 페이지당 10개씩 보이게 설정
+    
+        // Gender와 Age 데이터를 불러오기
+        $genderMap = ['1' => '남자', '2' => '여자'];
+    
+        // Ages 모델에서 sort 값을 기준으로 age를 가져오기
+        $agesData = Ages::pluck('age', 'sort')->all();
+    
+        return view('answer.system', compact('answers', 'genderMap', 'agesData'))
+            ->with('name', $request->input('name'))
+            ->with('answers', $answers->appends($request->except('page')));
+    }
+    
+    
 }

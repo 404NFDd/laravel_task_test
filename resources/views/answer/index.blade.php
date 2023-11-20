@@ -3,6 +3,18 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+
+            @if(Session::has('success'))
+                <div id="confirmationMessage" class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+                <script>
+                    setTimeout(function() {
+                        document.querySelector('#confirmationMessage').style.display = 'none';
+                    }, 5000); 
+                </script>
+            @endif
+
             <form action="{{ route('answer.confirm') }}" method="post">
                 @csrf
                 <!-- 이름 -->

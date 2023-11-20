@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(RouteSeeder::class);
         // $this->call(RouteShopSeeder::class);
         $this->call(ages::class);
-        
+        $this->call(AnswersTableSeeder::class);
     }
 }

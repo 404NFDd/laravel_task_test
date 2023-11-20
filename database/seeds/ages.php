@@ -17,6 +17,7 @@ class ages extends Seeder
             ['age' => '20대', 'sort' => 2],
             ['age' => '30대', 'sort' => 3],
             ['age' => '40대', 'sort' => 4],
+            ['age' => '50대', 'sort' => 5],
             ['age' => '60대', 'sort' => 6],
         ]);
     }
